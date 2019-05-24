@@ -1,0 +1,78 @@
+<?php return [PHP_INT_MAX, static function () {
+
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['ApiPlatform\\Core\\Annotation\\ApiResource'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Annotation\\ApiResource')),
+            clone ($p['ApiPlatform\\Core\\Annotation\\ApiFilter'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Annotation\\ApiFilter')),
+            clone $p['ApiPlatform\\Core\\Annotation\\ApiFilter'],
+            clone ($p['Doctrine\\ORM\\Mapping\\Table'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Table')),
+            clone ($p['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'collectionOperations' => [
+                    [
+                        'get',
+                        'post' => [
+                            'method' => 'POST',
+                            'path' => '/orders',
+                            'controller' => 'App\\Controller\\OrderPost',
+                        ],
+                        'by_shopper_and_date' => [
+                            'method' => 'GET',
+                            'path' => '/orders/shopper/{shopperId}/{deliveryDate}',
+                            'controller' => 'App\\Controller\\DispatchOrder',
+                            'swagger_context' => [
+                                'description' => 'Retrieves the collection of Order by a shopper for a specific date.',
+                                'parameters' => [
+                                    [
+                                        'name' => 'shopperId',
+                                        'required' => true,
+                                        'type' => 'string',
+                                        'in' => 'path',
+                                        'description' => 'Shopper',
+                                    ],
+                                    [
+                                        'name' => 'deliveryDate',
+                                        'required' => true,
+                                        'type' => 'string',
+                                        'in' => 'path',
+                                        'description' => 'Date of orders',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+                'filterClass' => [
+                    1 => 'ApiPlatform\\Core\\Bridge\\Doctrine\\Orm\\Filter\\DateFilter',
+                    'ApiPlatform\\Core\\Bridge\\Doctrine\\Orm\\Filter\\SearchFilter',
+                ],
+                'properties' => [
+                    1 => [
+                        'deliveryDate' => 'exclude_null',
+                    ],
+                    [
+                        'shopper' => 'exact',
+                    ],
+                ],
+                'name' => [
+                    3 => 'orders',
+                ],
+                'repositoryClass' => [
+                    4 => 'App\\Repository\\OrderRepository',
+                ],
+            ],
+        ],
+        [
+            $o[0],
+            $o[1],
+            $o[2],
+            $o[3],
+            $o[4],
+        ],
+        []
+    );
+
+}];

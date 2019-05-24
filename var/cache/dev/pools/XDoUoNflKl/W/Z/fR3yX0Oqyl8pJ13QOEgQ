@@ -1,0 +1,1 @@
+<?php return [PHP_INT_MAX, 'api_addresses_get_item'];

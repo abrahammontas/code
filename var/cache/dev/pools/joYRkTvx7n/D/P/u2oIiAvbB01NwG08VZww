@@ -1,0 +1,93 @@
+<?php return [PHP_INT_MAX, static function () {
+
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['ApiPlatform\\Core\\Metadata\\Resource\\ResourceMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Metadata\\Resource\\ResourceMetadata')),
+        ],
+        null,
+        [
+            'ApiPlatform\\Core\\Metadata\\Resource\\ResourceMetadata' => [
+                'shortName' => [
+                    'Order',
+                ],
+                'description' => [
+                    '',
+                ],
+                'itemOperations' => [
+                    [
+                        'get' => [
+                            'method' => 'GET',
+                        ],
+                        'delete' => [
+                            'method' => 'DELETE',
+                        ],
+                        'put' => [
+                            'method' => 'PUT',
+                        ],
+                    ],
+                ],
+                'collectionOperations' => [
+                    [
+                        'get' => [
+                            'method' => 'GET',
+                        ],
+                        'post' => [
+                            'method' => 'POST',
+                            'path' => '/orders',
+                            'controller' => 'App\\Controller\\OrderPost',
+                            'input' => null,
+                            'output' => null,
+                        ],
+                        'by_shopper_and_date' => [
+                            'method' => 'GET',
+                            'path' => '/orders/shopper/{shopperId}/{deliveryDate}',
+                            'controller' => 'App\\Controller\\DispatchOrder',
+                            'swagger_context' => [
+                                'description' => 'Retrieves the collection of Order by a shopper for a specific date.',
+                                'parameters' => [
+                                    [
+                                        'name' => 'shopperId',
+                                        'required' => true,
+                                        'type' => 'string',
+                                        'in' => 'path',
+                                        'description' => 'Shopper',
+                                    ],
+                                    [
+                                        'name' => 'deliveryDate',
+                                        'required' => true,
+                                        'type' => 'string',
+                                        'in' => 'path',
+                                        'description' => 'Date of orders',
+                                    ],
+                                ],
+                            ],
+                            'input' => null,
+                            'output' => null,
+                        ],
+                    ],
+                ],
+                'graphql' => [
+                    [
+                        'query' => [],
+                        'delete' => [],
+                        'update' => [],
+                        'create' => [],
+                    ],
+                ],
+                'attributes' => [
+                    [
+                        'input' => null,
+                        'output' => null,
+                        'filters' => [
+                            'annotated_app_entity_order_api_platform_core_bridge_doctrine_orm_filter_date_filter',
+                            'annotated_app_entity_order_api_platform_core_bridge_doctrine_orm_filter_search_filter',
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        $o[0],
+        []
+    );
+
+}];
